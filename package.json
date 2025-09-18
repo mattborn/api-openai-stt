@@ -1,0 +1,21 @@
+{
+  "name": "api-openai-stt",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Matt Born",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "deploy": "gcloud functions deploy openai-stt --allow-unauthenticated --no-gen2 --runtime=nodejs20 --trigger-http",
+    "dev": "env-cmd npx functions-framework --target=openai-stt",
+    "test": "node test"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^4.0.0",
+    "openai": "^4.56.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  }
+}
