@@ -4,10 +4,10 @@
   "license": "MIT",
   "author": "Matt Born",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
-    "deploy": "gcloud functions deploy openai-stt --allow-unauthenticated --no-gen2 --runtime=nodejs20 --trigger-http",
+    "deploy": "gcloud functions deploy openai-stt --allow-unauthenticated --no-gen2 --runtime=nodejs22 --trigger-http",
     "dev": "env-cmd npx functions-framework --target=openai-stt",
     "test": "node test"
   },

@@ -14,13 +14,13 @@ functions.http('openai-stt', async (req, res) => {
     res.status(204).send('')
   } else {
     try {
-      const { base64, model, format = 'webm' } = req.body
+      const { base64, format = 'webm', ...rest } = req.body
 
       const buffer = Buffer.from(base64, 'base64')
 
       const transcription = await openai.audio.transcriptions.create({
+        ...rest,
         file: new File([buffer], `audio.${format}`, { type: `audio/${format}` }),
-        model: model,
       })
 
       res.status(200).json({ text: transcription.text })
